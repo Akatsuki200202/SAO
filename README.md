@@ -1,2 +1,2 @@
 # SAO
-Supplemental material for ICDE， use 'python main.py' to have a quick start.
+Supplemental material for ICDE
