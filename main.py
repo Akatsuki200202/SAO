@@ -2,7 +2,6 @@ from datetime import datetime
 from time import sleep
 from misc.utils import *
 from modules.multiprocs_MA import ParentProcess as MAprocess
-from modules.multiprocs_MA_FLShield import ParentProcess as FLMAprocess
 from modules.multiprocs import ParentProcess as process
 from cross_test import cross_test,clean_cross
 from models.ParserSet import Parser
@@ -24,10 +23,7 @@ def main(args):
     if(args.attack_method != "none"):
         MA_client_name = module_name + ".Malicious_Client_" + args.attack_method
         MAClient = dynamic_import_object(MA_client_name,"MAClient")
-        if(args.model != "FLShield"):
-            pp = MAprocess(args, Server, Client, MAClient)
-        else:
-            pp = FLMAprocess(args, Server, Client, MAClient)
+        pp = MAprocess(args, Server, Client, MAClient)
 
     if(args.attack_method=="none"):
         pp = process(args, Server, Client)
